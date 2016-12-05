@@ -105,6 +105,36 @@
   </script>
 </head>
 <body>
+
+  <?php
+    function render_contacts() {
+      $query = array(
+        'post_type' => 'contact',
+        'orderby' => 'ID',
+        'order' => 'DESC'
+      );
+
+      $contact_list = new WP_Query( $query );
+
+      if ($contact_list->have_posts()) {
+        while ( $contact_list->have_posts() ) {
+          $contact_list->the_post();
+          $pods_contact = pods( get_post_type(), get_the_ID() );
+
+          $pod_contact = $pods_contact->field( 'contact' );
+
+          if ( $pods_contact->field( 'email' ) == 1 ) {
+            echo "<a href=mailto:" . $pod_contact . ">" . $pod_contact . "</a>";
+          } elseif ($pods_contact->field( 'email' ) == 0) {
+            echo "<p>" . $pod_contact . "</p>";
+          }
+        }
+      }
+
+      wp_reset_query();
+    }
+  ?>
+
   <div class="loader">
     <div class="loader-layer1"></div>
     <div class="loader-layer2"></div>
@@ -126,9 +156,9 @@
     <div class="container-footer" id="top-footer">
       <div class="container-footer-contacts">
         <div class="container-footer-contacts-title">CONTACTS</div>
-        <a href="mailto:INFO@WALKOFSHAME.MOSCO">INFO@WALKOFSHAME.MOSCOW</a>
-        <a href="mailto:PRESS@WALKOFSHAME.MOSCOW">PRESS@WALKOFSHAME.MOSCOW</a>
-        <p>WHATSAPP + 7 916 8148867</p>
+
+        <?php render_contacts(); ?>
+
       </div>
       <div class="container-footer-subscribe">
         <div class="container-footer-subscribe-title">SUBSCRIBE TO THE NEWS AND UPDATES</div>
@@ -368,9 +398,9 @@
     <div class="container-footer">
       <div class="container-footer-contacts">
         <div class="container-footer-contacts-title">CONTACTS</div>
-        <a href="mailto:INFO@WALKOFSHAME.MOSCO">INFO@WALKOFSHAME.MOSCOW</a>
-        <a href="mailto:PRESS@WALKOFSHAME.MOSCOW">PRESS@WALKOFSHAME.MOSCOW</a>
-        <p>WHATSAPP + 7 916 8148867</p>
+
+        <?php render_contacts(); ?>
+
       </div>
       <div class="container-footer-subscribe">
         <div class="container-footer-subscribe-title">SUBSCRIBE TO THE NEWS AND UPDATES</div>
