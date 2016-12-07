@@ -109,7 +109,8 @@
   <?php
     function render_contacts() {
       $query = array(
-        'post_type' => 'contact'
+        'post_type'   => 'contact',
+        'post_status' => 'publish'
       );
 
       $contact_list = new WP_Query( $query );
@@ -126,6 +127,24 @@
           } elseif ($pods_contact->field( 'email' ) == 0) {
             echo "<p>" . $pod_contact . "</p>";
           }
+        }
+      }
+
+      wp_reset_query();
+    }
+
+    function render_intro() {
+      $query = array(
+        'post_type'   => 'content',
+				'post_status' => 'publish'
+      );
+
+      $content = new WP_Query( $query );
+
+      if ($content->have_posts()) {
+        while ( $content->have_posts() ) {
+          $content->the_post();
+          the_content();
         }
       }
 
@@ -276,7 +295,9 @@
     <div id="anchor-overview"></div>
     <div class="container-overview" id="container-overview">
       <div class="container-overview-text">
-        <p><span class="container-overview-special">Walk of Shame</span> is a brand founded in 2011 by designer <span class="container-overview-special">Andrey Artyomov</span>. Collections capture the spirit of easy-going Moscow rooftops summer nights, raves and grunge of 90s, freedom and abundance of 2000s - dedication to the raucous youth of Andrey and his friends. Inspiration comes from his school years in Ufa, endless Moscow revelries, and the DJ sets of famous friends. Each season collections feature variations of signature pieces: slip dresses, bathrobe fur coats, oversized bomber jackets and high quality denim. WOS loyal clientele and muses include Natasha Goldenberg, Leandra Medine (Man Repeller), Elle Fanning and Rihanna.</p>
+
+        <?php render_intro(); ?>
+        
       </div>
       <div class="container-overview-portrait">
         <div class="container-overview-portrait-image" id="container-overview-portrait-image"></div>
