@@ -122,7 +122,7 @@
           $pod_contact = $pods_contact->field( 'contact' );
 
           if ( $pods_contact->field( 'email' ) == 1 ) {
-            echo "<a href=mailto:" . $pod_contact . ">" . $pod_contact . "</a>";
+            echo "<p><a href=mailto:" . $pod_contact . ">" . $pod_contact . "</a></p>";
           } elseif ($pods_contact->field( 'email' ) == 0) {
             echo "<p>" . $pod_contact . "</p>";
           }
