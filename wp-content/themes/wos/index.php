@@ -212,7 +212,7 @@
                 $key = array_search($city, $location);
 
                 if ($key == $region) {
-                  echo '<h6>' . str_replace('--', ', ', $city) . '</h6>';
+                  echo '<h6>' . $city . '</h6>';
                 }
               }
 
@@ -297,7 +297,7 @@
       <div class="container-overview-text">
 
         <?php render_intro(); ?>
-        
+
       </div>
       <div class="container-overview-portrait">
         <div class="container-overview-portrait-image" id="container-overview-portrait-image"></div>

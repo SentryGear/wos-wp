@@ -1,5 +1,7 @@
 <?php
 
+require get_template_directory() . '/shortcodes.php';
+
 function wos_enqueue() {
   wp_register_style( 'wos_style', get_template_directory_uri() . '/style.css' );
 
@@ -19,5 +21,31 @@ function wos_enqueue() {
   wp_enqueue_script( 'wos_slick' );
   wp_enqueue_script( 'wos_main' );
 }
+
+function lead()
+{
+  if(wp_script_is("quicktags")) {
+    ?>
+    <script type="text/javascript">
+
+    function getSel() {
+      var txtarea = document.getElementById("content");
+      var start = txtarea.selectionStart;
+      var finish = txtarea.selectionEnd;
+      return txtarea.value.substring(start, finish);
+    }
+
+    QTags.addButton( "lead_shortcode", "lead", callback );
+
+    function callback() {
+      var selected_text = getSel();
+      QTags.insertContent( '[lead]' +  selected_text + '[/lead]' );
+    }
+    </script>
+    <?php
+  }
+}
+
+add_action("admin_print_footer_scripts", "lead");
 
 add_action( 'wp_enqueue_scripts', 'wos_enqueue' );
