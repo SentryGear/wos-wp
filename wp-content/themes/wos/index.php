@@ -109,9 +109,7 @@
   <?php
     function render_contacts() {
       $query = array(
-        'post_type' => 'contact',
-        'orderby' => 'ID',
-        'order' => 'DESC'
+        'post_type' => 'contact'
       );
 
       $contact_list = new WP_Query( $query );
@@ -129,6 +127,90 @@
             echo "<p>" . $pod_contact . "</p>";
           }
         }
+      }
+
+      wp_reset_query();
+    }
+
+    function render_stores() {
+      $query = array(
+        'post_type'      => 'store',
+        'posts_per_page' => -1,
+				'orderby'        => 'ID',
+        'order'          => 'ASC',
+				'post_status'    => 'publish'
+      );
+
+      $store_list = new WP_Query( $query );
+
+      $locations = array();
+      $regions = array();
+      $cities = array();
+
+      $stores = array();
+
+      if ($store_list->have_posts()) {
+        while ( $store_list->have_posts() ) {
+          $store_list->the_post();
+
+          $terms_region_name = wp_get_post_terms( get_the_ID(), 'region', array("fields" => "names"));
+          array_push($regions, $terms_region_name[0]);
+
+          $terms_city_name = wp_get_post_terms( get_the_ID(), 'city', array("fields" => "names"));
+          array_push($cities, $terms_city_name[0]);
+
+          $temp = array($terms_region_name[0] => $terms_city_name[0]);
+          array_push($locations, $temp);
+
+          $pods_stores = pods( get_post_type(), get_the_ID() );
+          $stores_link = $pods_stores->field( 'link' );
+
+          $store = array(
+            "name"   => get_the_title(),
+            "region" => $terms_region_name[0],
+            "city"   => $terms_city_name[0],
+            "link"   => $stores_link
+          );
+
+          array_push($stores, $store);
+        }
+      }
+
+      $locations = array_map("unserialize", array_unique(array_map("serialize", $locations)));
+
+      $unique_regions = array_unique($regions);
+      $unique_cities = array_unique($cities);
+
+      foreach ($unique_regions as &$region) {
+        ?>
+        <div class="container-stores-zones-zone">
+          <div class="container-stores-zones-zone-title"><?php echo $region; ?></div>
+          <div class="container-stores-zones-zone-list">
+            <?php
+            foreach ($unique_cities as &$city) {
+
+              foreach ($locations as &$location) {
+                $key = array_search($city, $location);
+
+                if ($key == $region) {
+                  echo '<h6>' . str_replace('--', ', ', $city) . '</h6>';
+                }
+              }
+
+              foreach ($stores as $store) {
+                if (($store['region'] == $region) && ($store['city']) == $city) {
+                  if ($store['link'] == '') {
+                    echo '<p>' . $store['name'] . '</p>';
+                  } else {
+                    echo '<a target="_blank" href="' . $store['link'] . '">' . $store['name'] . '</a>';
+                  }
+                }
+              }
+            }
+            ?>
+          </div>
+        </div>
+        <?php
       }
 
       wp_reset_query();
@@ -307,89 +389,9 @@
     <div class="container-stores">
       <div class="container-stores-title">WHERE TO BUY</div>
       <div class="container-stores-zones">
-        <div class="container-stores-zones-zone">
-          <div class="container-stores-zones-zone-title">RUSSIA</div>
-          <div class="container-stores-zones-zone-list">
-            <h6>MOSCOW</h6>
-            <p>TSUM</p>
-            <p>KM-20</p>
-            <h6>ST. PETERSBURG</h6>
-            <p>BABOCHKA GALLERY</p>
-            <p>AU PONT ROUGE</p>
-            <h6>YAROSLAVL</h6>
-            <p>LA SCALA</p>
-            <h6>KAZAN</h6>
-            <p>VIP</p>
-            <h6>NOVOSIBIRSK</h6>
-            <p>MONACO</p>
-            <p>LUKSE</p>
-            <h6>SAMARA</h6>
-            <p>VOLNA </p>
-            <h6>YUZHNO-SAKHALINSK</h6>
-            <p>UNDERGROUND</p>
-            <h6>KRASNODAR</h6>
-            <p>ETAJI FLOORS</p>
-          </div>
-        </div>
-        <div class="container-stores-zones-zone">
-          <div class="container-stores-zones-zone-title">EASTERN EUROPE</div>
-          <div class="container-stores-zones-zone-list">
-            <h6>MINSK, BY</h6>
-            <p>ALINE</p>
-            <h6>TBILISI, GE</h6>
-            <p>MORE IS LOVE</p>
-            <h6>KIEV, UA</h6>
-            <p>ASHTIK</p>
-            <p>FASHION CLUB</p>
-          </div>
-        </div>
-        <div class="container-stores-zones-zone">
-          <div class="container-stores-zones-zone-title">EUROPE</div>
-          <div class="container-stores-zones-zone-list">
-            <h6>PARIS, FR</h6>
-            <p>GALERIES LAFAYETTE</p>
-            <h6>MONTECARLO, MC</h6>
-            <p>MONACO POPS</p>
-            <h6>LONDON, UK</h6>
-            <p>SELFRIDGES</p>
-            <p>BROWNS</p>
-            <p>18 MONTROSE</p>
-            <h6>GLASGOW, UK</h6>
-            <p class="container-stores-zones-zone-list-b">18 MONTROSE</p>
-          </div>
-        </div>
-        <div class="container-stores-zones-zone">
-          <div class="container-stores-zones-zone-title">ASIA</div>
-          <div class="container-stores-zones-zone-list">
-            <h6>TOKYO, JP</h6>
-            <p>RESTIRE</p>
-            <h6>SEOUL, KR</h6>
-            <p>RARE MARKET</p>
-            <p>TOM GREYHOUND</p>
-            <h6>TAIPEI, TW</h6>
-            <p>CLASH</p>
-            <h6>BEIJING, CN</h6>
-            <p>HIRMOSO</p>
-          </div>
-        </div>
-        <div class="container-stores-zones-zone">
-          <div class="container-stores-zones-zone-title">USA</div>
-          <div class="container-stores-zones-zone-list">
-            <h6>CALIFORNIA</h6>
-            <p>ATELIER 7918</p>
-            <p>AVANT GARDE</p>
-          </div>
-        </div>
-        <div class="container-stores-zones-zone">
-          <div class="container-stores-zones-zone-title">ONLINE</div>
-          <div class="container-stores-zones-zone-list">
-            <a target="_blank" href="http://www.selfridges.com/">SELFRIDGES.COM</a>
-            <a target="_blank" href="http://www.brownsfashion.com/">BROWNSFASHION.COM</a>
-            <a target="_blank" href="https://www.farfetch.com/">FARFETCH.COM</a>
-            <a target="_blank" href="http://www.km20.ru/">KM20.RU</a>
-            <a target="_blank" href="http://thesprezzatura.com/">THESPREZZATURA.COM</a>
-          </div>
-        </div>
+
+        <?php render_stores(); ?>
+
         <div class="container-stores-zones-fake"></div>
         <div class="container-stores-zones-fake"></div>
       </div>
