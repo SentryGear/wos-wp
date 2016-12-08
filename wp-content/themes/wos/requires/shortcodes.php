@@ -1,9 +1,9 @@
 <?php
 
-function post_lead( $atts = null, $content = null ) {
+function post_special( $atts = null, $content = null ) {
   $string = '<span class="container-overview-special">' . do_shortcode( $content ) . '</span>';
 
   return $string;
 }
 
-add_shortcode( "lead", "post_lead" );
+add_shortcode( "special", "post_special" );

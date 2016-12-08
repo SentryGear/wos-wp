@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
+var header = require('gulp-header');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 
@@ -20,6 +21,7 @@ gulp.task('styles', function () {
     cascade: false
   }))
   .pipe(cleanCSS({compatibility: 'ie8'}))
+  .pipe(header('/* Theme Name: Walk Of Shame */ \n'))
   .pipe(gulp.dest('./'));
 });
 
