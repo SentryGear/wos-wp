@@ -13,7 +13,15 @@
   }
 ?>
 
-<?php require 'requires/render_functions.php'; ?>
+<?php
+
+  require 'requires/render_functions.php';
+
+  $background_audio = wos_get_media('Background audio');
+
+  $background_video = wos_get_media('Background video');
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +32,9 @@
 
     var templateUrl = '<?php bloginfo('template_url'); ?>';
 
-    var backgroundAudio = '<?php echo wos_get_media('Background audio'); ?>';
+    var backgroundAudio = "<?php echo $background_audio ?>";
+
+    var backgroundVideo = "<?php echo $background_video ?>";
 
   </script>
 
@@ -72,17 +82,19 @@
           var attrClass = document.createAttribute('class');
           var attrAutoplay = document.createAttribute('autoplay');
           var attrLoop = document.createAttribute('loop');
+          var attrMuted = document.createAttribute('muted');
 
           attrClass.value = 'container-video';
 
           elVideo.setAttributeNode(attrClass);
           elVideo.setAttributeNode(attrAutoplay);
           elVideo.setAttributeNode(attrLoop);
+          elVideo.setAttributeNode(attrMuted);
 
           var elSource = document.createElement('source');
           var attrSrc = document.createAttribute('src');
 
-          attrSrc.value = templateUrl +'/public/videos/wos-video-muted-compressed.mp4';
+          attrSrc.value = backgroundVideo;
           elSource.setAttributeNode(attrSrc);
 
           elVideo.appendChild(elSource)

@@ -150,9 +150,9 @@ function render_stores() {
 
 function wos_get_media($media) {
   $query = array(
-    'post_type'   => 'media_content',
-    'post_status' => 'publish',
-    'post_title'  => $media
+    'post_type'       => 'media_content',
+    'post_status'     => 'publish',
+    'post_title_like' => $media
   );
 
   $content = new WP_Query( $query );
@@ -161,10 +161,8 @@ function wos_get_media($media) {
     while ( $content->have_posts() ) {
       $content->the_post();
 
-      if (get_the_title() == 'Background audio') {
-        $pods_post = pods( get_post_type(), get_the_ID() );
-        $media_file = $pods_post->field( 'media_file' );
-      }
+      $pods_post = pods( get_post_type(), get_the_ID() );
+      $media_file = $pods_post->field( 'media_file' );
     }
   }
 
