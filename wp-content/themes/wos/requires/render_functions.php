@@ -147,3 +147,28 @@ function render_stores() {
 
   wp_reset_query();
 }
+
+function wos_get_media($media) {
+  $query = array(
+    'post_type'   => 'media_content',
+    'post_status' => 'publish',
+    'post_title'  => $media
+  );
+
+  $content = new WP_Query( $query );
+
+  if ($content->have_posts()) {
+    while ( $content->have_posts() ) {
+      $content->the_post();
+
+      if (get_the_title() == 'Background audio') {
+        $pods_post = pods( get_post_type(), get_the_ID() );
+        $media_file = $pods_post->field( 'media_file' );
+      }
+    }
+  }
+
+  wp_reset_query();
+
+  return $media_file['guid'];
+}

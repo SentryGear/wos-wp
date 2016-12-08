@@ -24,6 +24,8 @@
 
     var templateUrl = '<?php bloginfo('template_url'); ?>';
 
+    var backgroundAudio = '<?php echo wos_get_media('Background audio'); ?>';
+
   </script>
 
   <title>WALK OF SHAME</title>
@@ -167,7 +169,7 @@
     <div class="container-overview" id="container-overview">
 
       <?php render_intro(); ?>
-      
+
     </div>
 
     <div id="anchor-collection"></div>

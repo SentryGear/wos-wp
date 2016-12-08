@@ -178,7 +178,7 @@ function renderContent() {
   // Fancy stuff
   var isAudioPlaing = true;
 
-  $( '.container' ).append('<audio autoplay loop class="container-audioplayer"><source src="'+ templateUrl +'/public/audio/wos-audio.mp3" type="audio/mpeg"></audio>');
+  $( '.container' ).append('<audio autoplay loop class="container-audioplayer"><source src="'+ backgroundAudio +'" type="audio/mpeg"></audio>');
   $( '.container-audio-icon' ).attr('src', templateUrl +'/public/images/audio-on.svg');
 
   $( '.container-audio-icon' ).on('click', function () {
