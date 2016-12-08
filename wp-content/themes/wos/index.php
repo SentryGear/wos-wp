@@ -195,58 +195,9 @@
     <div class="container-muses" id="container-muses">
       <div class="container-muses-title">WHO WEARS</div>
       <div id="slider">
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/kacy hill.jpg" />
-          <a href="https://www.instagram.com/kacyhill/" target="_blank" class="slider-slide-caption">kacy hill</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/cleo wade.jpg" />
-          <a href="https://www.instagram.com/cleowade/" target="_blank" class="slider-slide-caption">cleo wade</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/lilit rashoyan.jpg" />
-          <a href="https://www.instagram.com/ah_lilit/" target="_blank" class="slider-slide-caption">lilit rashoyan</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/mia moretti.jpg" />
-          <a href="https://www.instagram.com/miamoretti/" target="_blank" class="slider-slide-caption">mia moretti</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/rihanna.jpg" />
-          <a href="https://www.instagram.com/badgalriri/" target="_blank" class="slider-slide-caption">rihanna</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/olga karput.jpg" />
-          <a href="https://www.instagram.com/okarput/" target="_blank" class="slider-slide-caption">olga karput</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/natasha goldenberg.jpg" />
-          <a href="https://www.instagram.com/ngoldenberg/" target="_blank" class="slider-slide-caption">natasha goldenberg</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/avdotja alexandrova.jpg" />
-          <a href="https://www.instagram.com/vidunja/" target="_blank" class="slider-slide-caption">avdotja alexandrova</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/raveena aurora.jpg" />
-          <a href="https://www.instagram.com/raveenaaurora/" target="_blank" class="slider-slide-caption">raveena aurora</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/leandra medine.jpg" />
-          <a href="https://www.instagram.com/leandramedine/" target="_blank" class="slider-slide-caption">leandra medine</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/elle faning.jpg" />
-          <a href="https://www.instagram.com/ellefanning/" target="_blank" class="slider-slide-caption">elle fanning</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/lena perminova.jpg" />
-          <a href="https://www.instagram.com/lenaperminova/" target="_blank" class="slider-slide-caption">lena perminova</a>
-        </div>
-        <div class="slider-slide">
-          <img class="slider-slide-image" src="<?php bloginfo('template_url'); ?>/public/images/muses/matilda shnurova.jpg" />
-          <a href="https://www.instagram.com/mshnurova/" target="_blank" class="slider-slide-caption">matilda shnurova</a>
-        </div>
+
+        <?php render_muses(); ?>
+
       </div>
     </div>
 

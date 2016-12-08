@@ -115,6 +115,40 @@ function render_collection() {
   wp_reset_query();
 }
 
+function render_muses() {
+  $query = array(
+    'post_type'      => 'muse',
+    'post_status'    => 'publish'
+  );
+
+  $muses = new WP_Query( $query );
+
+  if ($muses->have_posts()) {
+    while ( $muses->have_posts() ) {
+      $muses->the_post();
+      $pods_muse = pods( get_post_type(), get_the_ID() );
+
+      $muse_name = get_the_title();
+      $muse_photo = $pods_muse->field( 'photo' );
+      $muse_photo = $muse_photo['guid'];
+      $muse_social_link = $pods_muse->field( 'social_link' );
+
+      ?>
+
+      <div class="slider-slide">
+        <img class="slider-slide-image" src="<?php echo $muse_photo; ?>" />
+        <a href="<?php echo $muse_social_link; ?>" target="_blank" class="slider-slide-caption">
+          <?php echo $muse_name; ?>
+        </a>
+      </div>
+
+      <?php
+    }
+  }
+
+  wp_reset_query();
+}
+
 function render_stores() {
   $query = array(
     'post_type'      => 'store',
