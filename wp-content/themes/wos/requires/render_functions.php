@@ -64,6 +64,57 @@ function render_intro() {
   wp_reset_query();
 }
 
+function render_collection() {
+  $query = array(
+    'post_type'      => 'collection',
+    'post_status'    => 'publish'
+  );
+
+  $collections = new WP_Query( $query );
+
+  if ($collections->have_posts()) {
+    while ( $collections->have_posts() ) {
+      $collections->the_post();
+      $pods_collection = pods( get_post_type(), get_the_ID() );
+
+      $collection_is_active = $pods_collection->field( 'active_collection' );
+
+      if ($collection_is_active == 1) {
+        $collection_title = get_the_title();
+        $collection_images = $pods_collection->field( 'images' );
+        $collection_images_part_1 = array_slice($collection_images, 0, 12);
+        $collection_images_part_2 = array_slice($collection_images, 12);
+        ?>
+
+        <div class="container-collection-title" id="container-collection-title"><?php echo $collection_title; ?></div>
+        <div class="container-collection-images">
+
+          <?php
+
+            foreach ($collection_images_part_1 as $image) {
+              $image_url = pods_image_url ( $image, $size = 'thumbnail', $default = 0, $force = false );
+
+              echo '<img class="container-collection-images-image" src="' . $image_url . '" />';
+            }
+
+            foreach ($collection_images_part_2 as $image) {
+              $image_url = pods_image_url ( $image, $size = 'thumbnail', $default = 0, $force = false );
+
+              echo '<img class="container-collection-images-image d-viewer" src="' . $image_url . '" />';
+            }
+
+          ?>
+
+        </div>
+
+        <?php
+      }
+    }
+  }
+
+  wp_reset_query();
+}
+
 function render_stores() {
   $query = array(
     'post_type'      => 'store',

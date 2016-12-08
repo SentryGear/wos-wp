@@ -186,39 +186,9 @@
 
     <div id="anchor-collection"></div>
     <div class="container-collection" id="container-collection">
-      <div class="container-collection-title" id="container-collection-title">COLLECTION RESORT 2017</div>
-      <div class="container-collection-images">
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/1.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/2.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/3.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/4.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/5.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/6.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/7.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/8.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/9.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/10.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/11.jpg" />
-        <img class="container-collection-images-image" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/12.jpg" />
 
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/13.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/14.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/15.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/16.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/17.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/18.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/19.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/20.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/21.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/22.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/23.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/24.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/25.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/26.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/27.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/28.jpg" />
-        <img class="container-collection-images-image d-viewer" src="<?php bloginfo('template_url'); ?>/public/images/collection/thumbnails/29.jpg" />
-      </div>
+      <?php render_collection(); ?>
+
     </div>
 
     <div id="anchor-muses"></div>

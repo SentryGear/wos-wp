@@ -73,9 +73,9 @@ $( '.container-collection-images-image' ).on(viewerEvent, function () {
     imgPrev = $('.container-collection-images-image').eq( img.index() - 1 );
     imgNext = $('.container-collection-images-image').eq( img.is(':last-child') ? 0 : img.index() + 1 );
 
-    $('.viewer-images-image.center').attr('src', img.attr('src').replace('thumbnails/', ''));
-    $('.viewer-images-image.left').attr('src', imgPrev.attr('src').replace('thumbnails/', ''));
-    $('.viewer-images-image.right').attr('src', imgNext.attr('src').replace('thumbnails/', ''));
+    $('.viewer-images-image.center').attr('src', img.attr('src').replace('-230x310', ''));
+    $('.viewer-images-image.left').attr('src', imgPrev.attr('src').replace('-230x310', ''));
+    $('.viewer-images-image.right').attr('src', imgNext.attr('src').replace('-230x310', ''));
   }
 
   setImages($(this));
