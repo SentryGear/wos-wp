@@ -23,16 +23,16 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	include( dirname( __FILE__ ) . '/wp-config-local.php' );
 } else {
 	/** The name of the database for WordPress */
-	define('DB_NAME', 'wos');
+	define('DB_NAME', 'u267491936_wos');
 
 	/** MySQL database username */
-	define('DB_USER', 'wos');
+	define('DB_USER', 'u267491936_wos');
 
 	/** MySQL database password */
-	define('DB_PASSWORD', 'password');
+	define('DB_PASSWORD', 'h3P2BSIfXK');
 
 	/** MySQL hostname */
-	define('DB_HOST', 'localhost');
+	define('DB_HOST', 'mysql.hostinger.co.uk');
 
 	/** Database Charset to use in creating database tables. */
 	define('DB_CHARSET', 'utf8mb4');
@@ -81,7 +81,8 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+
+ define( 'WP_DEBUG', false );
 
 /* That's all, stop editing! Happy blogging. */
 

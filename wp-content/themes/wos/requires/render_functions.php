@@ -1,6 +1,52 @@
 <?php
 
-function render_contacts() {
+function wos_get_media($media) {
+  $query = array(
+    'post_type'       => 'media_content',
+    'post_status'     => 'publish',
+    'post_title_like' => $media
+  );
+
+  $content = new WP_Query( $query );
+
+  if ($content->have_posts()) {
+    while ( $content->have_posts() ) {
+      $content->the_post();
+
+      $pods_post = pods( get_post_type(), get_the_ID() );
+      $media_file = $pods_post->field( 'media_file' );
+    }
+  }
+
+  wp_reset_query();
+
+  return $media_file['guid'];
+}
+
+function wos_render_social_link($social) {
+  $query = array(
+    'post_type'       => 'social_link',
+    'post_status'     => 'publish',
+    'post_title_like' => $social
+  );
+
+  $social = new WP_Query( $query );
+
+  if ($social->have_posts()) {
+    while ( $social->have_posts() ) {
+      $social->the_post();
+
+      $pods_post = pods( get_post_type(), get_the_ID() );
+      $social_link = $pods_post->field( 'link' );
+    }
+  }
+
+  wp_reset_query();
+
+  return $social_link;
+}
+
+function wos_render_contacts() {
   $query = array(
     'post_type'   => 'contact',
     'post_status' => 'publish'
@@ -26,7 +72,7 @@ function render_contacts() {
   wp_reset_query();
 }
 
-function render_intro() {
+function wos_render_intro() {
   $query = array(
     'post_type'   => 'intro_content',
     'post_status' => 'publish'
@@ -44,7 +90,7 @@ function render_intro() {
       if (get_the_title() == 'Image') {
         $pods_post = pods( get_post_type(), get_the_ID() );
         $image = $pods_post->field( 'image' );
-        $post_content = $image['guid'];
+        $post_content = pods_image_url ( $image, $size = 'null', $default = 0, $force = false );
       }
 
       $intro[get_the_title()] = $post_content;
@@ -64,7 +110,7 @@ function render_intro() {
   wp_reset_query();
 }
 
-function render_collection() {
+function wos_render_collection() {
   $query = array(
     'post_type'      => 'collection',
     'post_status'    => 'publish'
@@ -115,7 +161,7 @@ function render_collection() {
   wp_reset_query();
 }
 
-function render_muses() {
+function wos_render_muses() {
   $query = array(
     'post_type'      => 'muse',
     'post_status'    => 'publish'
@@ -130,7 +176,7 @@ function render_muses() {
 
       $muse_name = get_the_title();
       $muse_photo = $pods_muse->field( 'photo' );
-      $muse_photo = $muse_photo['guid'];
+      $muse_photo = pods_image_url ( $muse_photo, $size = 'null', $default = 0, $force = false );
       $muse_social_link = $pods_muse->field( 'social_link' );
 
       ?>
@@ -149,7 +195,7 @@ function render_muses() {
   wp_reset_query();
 }
 
-function render_stores() {
+function wos_render_stores() {
   $query = array(
     'post_type'      => 'store',
     'posts_per_page' => -1,
@@ -231,27 +277,4 @@ function render_stores() {
   }
 
   wp_reset_query();
-}
-
-function wos_get_media($media) {
-  $query = array(
-    'post_type'       => 'media_content',
-    'post_status'     => 'publish',
-    'post_title_like' => $media
-  );
-
-  $content = new WP_Query( $query );
-
-  if ($content->have_posts()) {
-    while ( $content->have_posts() ) {
-      $content->the_post();
-
-      $pods_post = pods( get_post_type(), get_the_ID() );
-      $media_file = $pods_post->field( 'media_file' );
-    }
-  }
-
-  wp_reset_query();
-
-  return $media_file['guid'];
 }

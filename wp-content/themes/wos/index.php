@@ -143,7 +143,7 @@
       <div class="container-footer-contacts">
         <div class="container-footer-contacts-title">CONTACTS</div>
 
-        <?php render_contacts(); ?>
+        <?php wos_render_contacts(); ?>
 
       </div>
       <div class="container-footer-subscribe">
@@ -156,15 +156,15 @@
       <div class="container-footer-follow">
         <div class="container-footer-follow-title">FOLLOW US</div>
         <div class="container-footer-follow-blocks">
-          <a href="https://www.instagram.com/walkofshamemoscow/" target="_blank" class="container-footer-follow-blocks-block">
+          <a href="<?php echo wos_render_social_link('Instagram'); ?>" target="_blank" class="container-footer-follow-blocks-block">
             <img class="container-footer-follow-blocks-block-icon" src="<?php bloginfo('template_url'); ?>/public/images/insta.svg" />
             <span class="container-footer-follow-blocks-block-text">INSTAGRAM</span>
           </a>
-          <a href="https://www.facebook.com/walkofshamemoscow/" target="_blank" class="container-footer-follow-blocks-block">
+          <a href="<?php echo wos_render_social_link('Facebook'); ?>" target="_blank" class="container-footer-follow-blocks-block">
             <img class="container-footer-follow-blocks-block-icon" src="<?php bloginfo('template_url'); ?>/public/images/fb.svg" />
             <span class="container-footer-follow-blocks-block-text">FACEBOOK</span>
           </a>
-          <a href="http://walkofshamemoscow.tumblr.com/" target="_blank" class="container-footer-follow-blocks-block">
+          <a href="<?php echo wos_render_social_link('Tumblr'); ?>" target="_blank" class="container-footer-follow-blocks-block">
             <img class="container-footer-follow-blocks-block-icon" src="<?php bloginfo('template_url'); ?>/public/images/tumblr.svg" />
             <span class="container-footer-follow-blocks-block-text">TUMBLR</span>
           </a>
@@ -180,14 +180,14 @@
     <div id="anchor-overview"></div>
     <div class="container-overview" id="container-overview">
 
-      <?php render_intro(); ?>
+      <?php wos_render_intro(); ?>
 
     </div>
 
     <div id="anchor-collection"></div>
     <div class="container-collection" id="container-collection">
 
-      <?php render_collection(); ?>
+      <?php wos_render_collection(); ?>
 
     </div>
 
@@ -196,7 +196,7 @@
       <div class="container-muses-title">WHO WEARS</div>
       <div id="slider">
 
-        <?php render_muses(); ?>
+        <?php wos_render_muses(); ?>
 
       </div>
     </div>
@@ -204,14 +204,14 @@
     <div id="anchor-follow"></div>
     <div class="container-follow" id="container-follow">
       <div class="container-follow-title">FOLLOW US ON</div>
-      <a href="https://www.instagram.com/walkofshamemoscow/" target="_blank" class="container-follow-link"><span id="container-follow-link-text">INSTAGRAM</span></a>
+      <a href="<?php echo wos_render_social_link('Instagram'); ?>" target="_blank" class="container-follow-link"><span id="container-follow-link-text">INSTAGRAM</span></a>
     </div>
 
     <div class="container-stores">
       <div class="container-stores-title">WHERE TO BUY</div>
       <div class="container-stores-zones">
 
-        <?php render_stores(); ?>
+        <?php wos_render_stores(); ?>
 
         <div class="container-stores-zones-fake"></div>
         <div class="container-stores-zones-fake"></div>
@@ -222,7 +222,7 @@
       <div class="container-footer-contacts">
         <div class="container-footer-contacts-title">CONTACTS</div>
 
-        <?php render_contacts(); ?>
+        <?php wos_render_contacts(); ?>
 
       </div>
       <div class="container-footer-subscribe">
@@ -236,15 +236,15 @@
       <div class="container-footer-follow">
         <div class="container-footer-follow-title">FOLLOW US</div>
         <div class="container-footer-follow-blocks">
-          <a href="https://www.instagram.com/walkofshamemoscow/" target="_blank" class="container-footer-follow-blocks-block">
+          <a href="<?php echo wos_render_social_link('Instagram'); ?>" target="_blank" class="container-footer-follow-blocks-block">
             <img class="container-footer-follow-blocks-block-icon" src="<?php bloginfo('template_url'); ?>/public/images/insta.svg" />
             <span class="container-footer-follow-blocks-block-text">INSTAGRAM</span>
           </a>
-          <a href="https://www.facebook.com/walkofshamemoscow/" target="_blank" class="container-footer-follow-blocks-block">
+          <a href="<?php echo wos_render_social_link('Facebook'); ?>" target="_blank" class="container-footer-follow-blocks-block">
             <img class="container-footer-follow-blocks-block-icon" src="<?php bloginfo('template_url'); ?>/public/images/fb.svg" />
             <span class="container-footer-follow-blocks-block-text">FACEBOOK</span>
           </a>
-          <a href="http://walkofshamemoscow.tumblr.com/" target="_blank" class="container-footer-follow-blocks-block">
+          <a href="<?php echo wos_render_social_link('Tumblr'); ?>" target="_blank" class="container-footer-follow-blocks-block">
             <img class="container-footer-follow-blocks-block-icon" src="<?php bloginfo('template_url'); ?>/public/images/tumblr.svg" />
             <span class="container-footer-follow-blocks-block-text">TUMBLR</span>
           </a>
