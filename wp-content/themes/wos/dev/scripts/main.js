@@ -142,8 +142,16 @@ $( window ).on('resize', function () {
   overviewResTypo();
 });
 
-// Muses responsive typo
 if (innerWidth >= 1100) {
+
+  // Overview fix for retina
+  function overviewTextWidth() {
+    $( '.container-overview-text' ).width($( '.container-overview' ).width() - ($( '.container-overview-portrait' ).width() + parseInt($( '.container-overview-portrait' ).css( 'margin-left' ))));
+  }
+
+  overviewTextWidth();
+
+  // Muses responsive typo
   function musesResTypo() {
     $( ".slider-slide-caption" ).css('font-size', 50 + (80 - 50) * (window.innerWidth - 1100) / (1680 - 1100) + 'px');
     $( ".slider-slide-caption" ).css('letter-spacing', 3 + (6 - 3) * (window.innerWidth - 1100) / (1680 - 1100) + 'px');
@@ -152,6 +160,7 @@ if (innerWidth >= 1100) {
   musesResTypo();
 
   $( window ).on('resize', function () {
+    overviewTextWidth();
     musesResTypo();
   });
 }
