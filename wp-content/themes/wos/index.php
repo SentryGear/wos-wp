@@ -18,8 +18,9 @@
   require 'requires/render_functions.php';
 
   $background_audio = wos_get_media('Background audio');
-
   $background_video = wos_get_media('Background video');
+  $background_image = wos_get_media('Background image');
+  $sharing_image    = wos_get_media('Sharing image');
 
 ?>
 
@@ -46,7 +47,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <meta property="og:image" content="http://walkofshame.moscow/public/images/share.jpg" />
+  <meta property="og:image" content="<?php echo $sharing_image; ?>" />
   <meta property="og:og:description" content="Walk of Shame is a brand founded in 2011 by designer Andrey Artyomov. Collections capture the spirit of easy-going Moscow rooftops summer nights, raves and grunge of 90-s, freedom and abundance of 2000-s - dedication to the raucous youth of Andrey and his friends. Inspiration comes from his school years in Ufa, endless Moscow revelries, and the DJ sets of famous friends. Each season collections feature variations signature pieces: slip dresses, bathrobe fur coats, oversized bomber jackets and high quality denim. WOS loyal clientele and muses include Natasha Goldenberg, Leandra Medine (Man Repeller), Elle Fanning and Rihanna." />
   <meta property="og:title" content="WALK OF SHAME" />
   <meta property="og:type" content="website" />
@@ -173,7 +174,7 @@
     </div>
 
     <div id="anchor-header"></div>
-    <div class="container-header">
+    <div class="container-header" style="background-image:url( <?php echo $background_image; ?> );">
       <div class="container-header-title"></div>
     </div>
 

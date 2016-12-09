@@ -15,12 +15,23 @@ function wos_get_media($media) {
 
       $pods_post = pods( get_post_type(), get_the_ID() );
       $media_file = $pods_post->field( 'media_file' );
+
+      $mystring = $media;
+      $findme   = 'image';
+      $pos = strpos($mystring, $findme);
+
+      if ($pos !== false) {
+        $pods_post = pods( get_post_type(), get_the_ID() );
+        $result = pods_image_url ( $media_file, $size = 'null', $default = 0, $force = false );
+      } else {
+        $result = $media_file['guid'];
+      }
     }
   }
 
   wp_reset_query();
 
-  return $media_file['guid'];
+  return $result;
 }
 
 function wos_render_social_link($social) {
