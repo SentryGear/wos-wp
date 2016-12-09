@@ -39,6 +39,10 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 
 	/** The Database Collate type. Don't change this if in doubt. */
 	define('DB_COLLATE', '');
+
+	define('WP_HOME','http://wos-wp.esy.es/');
+
+	define('WP_SITEURL','http://wos-wp.esy.es/');
 }
 
 /**#@+
