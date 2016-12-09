@@ -74,35 +74,31 @@ function wos_render_contacts() {
 
 function wos_render_intro() {
   $query = array(
-    'post_type'   => 'intro_content',
-    'post_status' => 'publish'
+    'post_type'       => 'intro_content',
+    'post_status'     => 'publish',
+    'post_title_like' => 'Intro content'
   );
 
-  $content = new WP_Query( $query );
+  $intro = new WP_Query( $query );
 
-  $intro = array();
+  if ($intro->have_posts()) {
+    while ( $intro->have_posts() ) {
+      $intro->the_post();
+      $pods_post = pods( get_post_type(), get_the_ID() );
+      $image = $pods_post->field( 'image' );
 
-  if ($content->have_posts()) {
-    while ( $content->have_posts() ) {
-      $content->the_post();
-      $post_content = do_shortcode(get_post_field('post_content'));
-
-      if (get_the_title() == 'Image') {
-        $pods_post = pods( get_post_type(), get_the_ID() );
-        $image = $pods_post->field( 'image' );
-        $post_content = pods_image_url ( $image, $size = 'null', $default = 0, $force = false );
-      }
-
-      $intro[get_the_title()] = $post_content;
+      $intro_text = do_shortcode( get_post_field('post_content') );
+      $intro_image = pods_image_url ( $image, $size = 'large', $default = 0, $force = false );
+      $intro_image_caption = $image['post_title'];
     }
   }
 
   ?>
 
-  <div class="container-overview-text"><?php echo $intro['Main text']; ?></div>
+  <div class="container-overview-text"><?php echo $intro_text; ?></div>
   <div class="container-overview-portrait">
-    <div style="background-image:url( <?php echo $intro['Image']; ?> );" class="container-overview-portrait-image" id="container-overview-portrait-image"></div>
-    <div class="container-overview-portrait-description"><?php echo $intro['Image caption']; ?></div>
+    <div style="background-image:url( <?php echo $intro_image; ?> );" class="container-overview-portrait-image" id="container-overview-portrait-image"></div>
+    <div class="container-overview-portrait-description"><?php echo $intro_image_caption; ?></div>
   </div>
 
   <?php
