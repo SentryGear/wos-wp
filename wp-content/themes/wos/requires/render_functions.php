@@ -14,18 +14,7 @@ function wos_get_media($media) {
       $content->the_post();
 
       $pods_post = pods( get_post_type(), get_the_ID() );
-      $media_file = $pods_post->field( 'media_file' );
-
-      $mystring = $media;
-      $findme   = 'image';
-      $pos = strpos($mystring, $findme);
-
-      if ($pos !== false) {
-        $pods_post = pods( get_post_type(), get_the_ID() );
-        $result = pods_image_url ( $media_file, $size = 'null', $default = 0, $force = false );
-      } else {
-        $result = $media_file['guid'];
-      }
+      $result = wp_get_attachment_url( $pods_post->field( 'media_file.ID' ) );
     }
   }
 
