@@ -32,7 +32,7 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	define('DB_PASSWORD', 'h3P2BSIfXK');
 
 	/** MySQL hostname */
-	define('DB_HOST', 'http://localhost/');
+	define('DB_HOST', 'localhost');
 
 	/** Database Charset to use in creating database tables. */
 	define('DB_CHARSET', 'utf8mb4');
