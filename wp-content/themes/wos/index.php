@@ -1,19 +1,4 @@
 <?php
-  if (isset($_POST['submit'])) {
-    if(!file_exists("subscribers.txt")) {
-      die("File not found");
-    } else {
-      $today = date("Y-m-d H:i:s");
-      $email = $_POST['email'];
-      $file = 'subscribers.txt';
-      $current = file_get_contents($file);
-      $current .= $today." ".$email."\n";
-      file_put_contents($file, $current);
-    }
-  }
-?>
-
-<?php
 
   require 'requires/render_functions.php';
 
@@ -149,8 +134,8 @@
       </div>
       <div class="container-footer-subscribe">
         <div class="container-footer-subscribe-title">SUBSCRIBE TO THE NEWS AND UPDATES</div>
-        <form class="container-footer-subscribe-form" id="subscribe-top" action="index.php" method="post">
-          <input required class="container-footer-subscribe-form-input" type="email" name="email" placeholder="Email">
+        <form class="container-footer-subscribe-form" id="subscribe-top" action="//moscow.us14.list-manage.com/subscribe/post?u=e5a1e5198391805c00d7dadca&amp;id=958f2b4ed5" method="post">
+          <input required class="container-footer-subscribe-form-input" type="email" name="EMAIL" placeholder="Email">
           <button class="container-footer-subscribe-form-button" type="submit" name="submit">SUBSCRIBE</button>
         </form>
       </div>
