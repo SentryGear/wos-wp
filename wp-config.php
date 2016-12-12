@@ -32,7 +32,7 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	define('DB_PASSWORD', 'h3P2BSIfXK');
 
 	/** MySQL hostname */
-	define('DB_HOST', 'localhost');
+	define('DB_HOST', 'http://localhost/');
 
 	/** Database Charset to use in creating database tables. */
 	define('DB_CHARSET', 'utf8mb4');
@@ -40,9 +40,9 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	/** The Database Collate type. Don't change this if in doubt. */
 	define('DB_COLLATE', '');
 
-	define('WP_HOME','http://wos-wp.esy.es/');
+	define('WP_HOME','http://46.101.242.31/wos-wp/');
 
-	define('WP_SITEURL','http://wos-wp.esy.es/');
+	define('WP_SITEURL','http://46.101.242.31/wos-wp/');
 }
 
 /**#@+
