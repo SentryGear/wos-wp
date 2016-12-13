@@ -241,9 +241,42 @@
   </div>
 
   <div class="viewer">
-    <img class="viewer-close" src="<?php bloginfo('template_url'); ?>/public/images/close.svg" />
-    <img class="viewer-arrow left" src="<?php bloginfo('template_url'); ?>/public/images/arrow.svg" />
-    <img class="viewer-arrow right" src="<?php bloginfo('template_url'); ?>/public/images/arrow.svg" />
+    <svg class="viewer-close" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title>Group 2</title>
+      <defs>
+        <path id="a" d="M0 0h64v64H0z"/>
+        <mask id="b" x="0" y="0" width="64" height="64" fill="#fff">
+          <use xlink:href="#a"/>
+        </mask>
+      </defs>
+      <g fill="none" fill-rule="evenodd">
+        <path d="M45 39.111l-8.7-7.577 8.7-7.577V16L31.733 27.555 19 16.465v7.958l8.165 7.11L19 38.646v7.957l12.733-11.09L44.923 47H45v-7.889z" fill="#FFF"/>
+        <use stroke="#FFF" mask="url(#b)" stroke-width="10" xlink:href="#a"/>
+      </g>
+    </svg>
+
+    <svg class="viewer-arrow left" width="38" height="48" viewBox="0 0 38 48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title>Rectangle 5 Copy</title>
+      <defs>
+        <path id="al" d="M.77 47.27v-47l36.77 23.5L.77 47.27"/>
+        <mask id="bl" x="0" y="0" width="36.77" height="47" fill="#fff">
+          <use xlink:href="#al"/>
+        </mask>
+      </defs>
+      <use mask="url(#bl)" xlink:href="#al" stroke="#FFF" stroke-width="12" fill="none" fill-rule="evenodd"/>
+    </svg>
+
+    <svg class="viewer-arrow right" width="38" height="48" viewBox="0 0 38 48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title>Rectangle 5 Copy</title>
+      <defs>
+        <path id="ar" d="M.77 47.27v-47l36.77 23.5L.77 47.27"/>
+        <mask id="br" x="0" y="0" width="36.77" height="47" fill="#fff">
+          <use xlink:href="#ar"/>
+        </mask>
+      </defs>
+      <use mask="url(#br)" xlink:href="#ar" stroke="#FFF" stroke-width="12" fill="none" fill-rule="evenodd"/>
+    </svg>
+
     <div class="viewer-images">
       <img class="viewer-images-image left">
       <img class="viewer-images-image center">

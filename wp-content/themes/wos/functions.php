@@ -34,8 +34,7 @@ function wos_enqueue() {
   wp_enqueue_script( 'wos_main' );
 }
 
-function special()
-{
+function special() {
   if(wp_script_is("quicktags")) {
     ?>
     <script type="text/javascript">
@@ -57,6 +56,16 @@ function special()
     <?php
   }
 }
+
+function remove_menus() {
+  remove_menu_page( 'edit-comments.php' );
+  remove_menu_page( 'edit.php?post_type=page' );
+  remove_menu_page( 'edit.php' );
+  remove_menu_page( 'themes.php' );
+  remove_menu_page( 'users.php' );
+}
+
+add_action( 'admin_menu', 'remove_menus' );
 
 add_action("admin_print_footer_scripts", "special");
 
