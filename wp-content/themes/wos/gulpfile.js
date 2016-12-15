@@ -21,7 +21,7 @@ gulp.task('styles', function () {
     cascade: false
   }))
   .pipe(cleanCSS({compatibility: 'ie8'}))
-  .pipe(header('/* Theme Name: Walk Of Shame */ \n'))
+  .pipe(header('/* Theme Name: Walk Of Shame */ \n\n'))
   .pipe(gulp.dest('./'));
 });
 
