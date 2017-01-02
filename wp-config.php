@@ -40,9 +40,9 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	/** The Database Collate type. Don't change this if in doubt. */
 	define('DB_COLLATE', '');
 
-	define('WP_HOME','http://walkofshame.moscow');
+	define('WP_HOME','http://46.101.242.31');
 
-	define('WP_SITEURL','http://walkofshame.moscow');
+	define('WP_SITEURL','http://46.101.242.31');
 }
 
 /**#@+
