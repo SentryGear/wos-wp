@@ -99,13 +99,16 @@ $( '.viewer-close' ).on('click', function () {
   })
 });
 
+// Slider configuration
 $(document).ready(function(){
   $('#slider').slick({
     arrows: false,
     centerMode: true,
     infinite: true,
     initialSlide: 6,
-    variableWidth: true
+    variableWidth: true,
+    autoplay: true,
+    autoplaySpeed: 2500
   });
 
   $('.slider-slide-image').mousewheel(function(e) {

@@ -931,28 +931,39 @@ body {
     &-image {
       width: 450px;
 
-      filter: grayscale(100%) brightness(100%);
+      filter: grayscale(0%) brightness(50%);
 
       transition: filter .33s ease-out;
     }
 
     &-caption {
-      visibility: hidden;
+      visibility: visible;
+      opacity: 1;
 
       // font-size: calc(50px + (100-50) * (100vw - 1100px) / (1680-1100));
       // letter-spacing: calc(3px + (6-3) * (100vw - 1100px) / (1680-1100));
       line-height: 1em;
 
-      transition: filter .33s ease-out;
+      transition: opacity .33s ease-out;
     }
 
     &:hover {
       .slider-slide-image {
-        filter: grayscale(0%) brightness(50%);
+        filter: grayscale(0%) brightness(50%) !important;
       }
 
       .slider-slide-caption {
-        visibility: visible;
+        opacity: 1 !important;
+      }
+    }
+
+    &:not(.slick-current) {
+      .slider-slide-image {
+        filter: grayscale(100%) brightness(100%);
+      }
+
+      .slider-slide-caption {
+        opacity: 0;
       }
     }
   }
