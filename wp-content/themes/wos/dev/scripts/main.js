@@ -103,12 +103,13 @@ $( '.viewer-close' ).on('click', function () {
 $(document).ready(function(){
   $('#slider').slick({
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2500,
     centerMode: true,
+    cssEase: 'ease-in-out',
     infinite: true,
     initialSlide: 6,
-    variableWidth: true,
-    autoplay: true,
-    autoplaySpeed: 2500
+    variableWidth: true
   });
 
   $('.slider-slide-image').mousewheel(function(e) {

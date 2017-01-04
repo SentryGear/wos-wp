@@ -933,7 +933,7 @@ body {
 
       filter: grayscale(0%) brightness(50%);
 
-      transition: filter .33s ease-out;
+      transition: filter .3s ease-out;
     }
 
     &-caption {
@@ -944,7 +944,7 @@ body {
       // letter-spacing: calc(3px + (6-3) * (100vw - 1100px) / (1680-1100));
       line-height: 1em;
 
-      transition: opacity .33s ease-out;
+      transition: opacity .3s ease-out;
     }
 
     &:hover {
@@ -965,6 +965,12 @@ body {
       .slider-slide-caption {
         opacity: 0;
       }
+    }
+  }
+
+  .slick-current {
+    .slider-slide-caption {
+      transition-delay: .45s;
     }
   }
 
