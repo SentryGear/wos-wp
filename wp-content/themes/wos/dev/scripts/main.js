@@ -578,9 +578,10 @@ function renderContent() {
     ]
   })
 
-  function mousemoveAnimations(e) {
-    choreographerM.runAnimationsAt(e.clientX);
-  }
+  // Muses mouse sliding
+  // function mousemoveAnimations(e) {
+  //   choreographerM.runAnimationsAt(e.clientX);
+  // }
 
   $( '#slider' ).hover(
     function() {
